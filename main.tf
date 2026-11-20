@@ -10,13 +10,6 @@ variable "marker" {
   default     = "v2"
 }
 
-resource "aws_ssm_parameter" "marker" {
-  name        = "/claude-cloud-apply/test-stack/marker"
-  description = "Claude cloud runner test stack. Safe to change or delete."
-  type        = "String"
-  tier        = "Standard"
-  value       = var.marker
-}
 
 # Uncomment on main to test the guard refusal (the Sandbox runner refuses any IAM role change):
 #
