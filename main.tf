@@ -7,7 +7,7 @@
 variable "marker" {
   description = "Change this on main to give the runner something to apply."
   type        = string
-  default     = "v1"
+  default     = "v2"
 }
 
 resource "aws_ssm_parameter" "marker" {
