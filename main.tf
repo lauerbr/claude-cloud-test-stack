@@ -20,7 +20,7 @@ resource "aws_ssm_parameter" "marker" {
 
 # Uncomment on main to test the guard refusal (the Sandbox runner refuses any IAM role change):
 #
-# resource "aws_iam_role" "guard_test" {
-#   name               = "claude-cloud-test-stack-guard-test"
-#   assume_role_policy = jsonencode({ Version = "2012-10-17", Statement = [] })
-# }
+resource "aws_iam_role" "guard_test" {
+  name               = "claude-cloud-test-stack-guard-test"
+  assume_role_policy = jsonencode({ Version = "2012-10-17", Statement = [] })
+}
