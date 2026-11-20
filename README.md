@@ -7,11 +7,13 @@ parameter.
 
 ## Why this is a separate, public repository
 
-The runner's source build clones its stacks through a GitHub CodeConnections connection, and every
-AWS account's connection shares one installation of the AWS Connector GitHub App, which has write
-access to every repository it is installed on. Giving the Sandbox account a connection would let
-anyone with admin there mint tokens for those repositories. So the Sandbox runner has no
-connection at all and clones this repository anonymously. Nothing here may be secret.
+The runner clones a private repository with a read-only deploy key it keeps in that stack's AWS
+account. This repository is public instead, so the Sandbox runner clones it anonymously and the
+Sandbox account holds no GitHub credential at all. Nothing here may be secret.
+
+`main` is protected by a ruleset (no direct pushes, no force-pushes, no deletion), because what
+merges here is what the Sandbox runner applies. The runner applies it under a policy that reaches
+only this stack's one parameter and its state.
 
 ## Running the tests
 
